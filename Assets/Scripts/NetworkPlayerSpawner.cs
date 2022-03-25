@@ -15,7 +15,6 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
-        Debug.Log("A player left a Room");
         base.OnLeftRoom();
         PhotonNetwork.Destroy(spawnedPlayerPrefab);
     }

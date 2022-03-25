@@ -77,6 +77,8 @@ MonoBehaviour:
   head: {fileID: 2807418105062485901}
   leftHand: {fileID: 6023719750600263658}
   rightHand: {fileID: 5720121603101441903}
+  leftHandAnimator: {fileID: 2815779746447605683}
+  rightHandAnimator: {fileID: 6881087596645291232}
 --- !u!1 &4181913457940664270
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,6 +340,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fd3a7c43c8190f4d8c167ebde694364, type: 3}
+--- !u!95 &6881087596645291232 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5686134208192617028, guid: 1fd3a7c43c8190f4d8c167ebde694364,
+    type: 3}
+  m_PrefabInstance: {fileID: 1267688913567682212}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6881087596654683990 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5686134208185362930, guid: 1fd3a7c43c8190f4d8c167ebde694364,
@@ -554,6 +562,12 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
+--- !u!95 &2815779746447605683 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 109434732388006827, guid: 65847589f926b734d9eaed6e25f0046b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2780799656658732056}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3145847557033614706
 PrefabInstance:
   m_ObjectHideFlags: 0

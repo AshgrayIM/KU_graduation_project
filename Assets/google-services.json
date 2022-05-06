@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "427972374933",
+    "project_id": "kuproject-e0a48",
+    "storage_bucket": "kuproject-e0a48.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:427972374933:android:76f7e94d3a6df89f58c69c",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.KU.GraduationProject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "427972374933-deo165dlquukismfd1lhimu0ofrlkr5u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4pxP800g_bI0T6NdMIsf9KiElYEMVaNk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "427972374933-deo165dlquukismfd1lhimu0ofrlkr5u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

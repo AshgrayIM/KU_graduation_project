@@ -1073,6 +1073,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Manu UI",
+            "id": "61e3712c-7944-489c-900f-a8bdd185786d",
+            "actions": [
+                {
+                    "name": "Open",
+                    "type": "Button",
+                    "id": "0acfcd74-0ae4-4e4d-a179-08ea666901c4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "cc50dc8d-35c4-4413-8044-42e112cc938c",
+                    "path": "<OculusTouchController>/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Open",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

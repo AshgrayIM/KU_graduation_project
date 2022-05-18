@@ -9,14 +9,26 @@ public class AuthManager : MonoBehaviour
     [SerializeField] InputField emailField;
     [SerializeField] InputField passField;
     
+    public GameObject userUI;
+
     // 인증을 관리할 객체
     Firebase.Auth.FirebaseAuth auth;
+
+    bool isLogin = false;
 
     void Awake()
     { 
         // 객체 초기화
         auth = Firebase.Auth.FirebaseAuth.DefaultInstance;
     }
+
+    private void Update() {
+        if(isLogin){
+            userUI.GetComponentInChildren<Text>().text = emailField.text;
+            isLogin = false;
+        }
+    }
+
     public void login()
     {
         // 제공되는 함수 : 이메일과 비밀번호로 로그인 시켜 줌
@@ -25,6 +37,7 @@ public class AuthManager : MonoBehaviour
                 if (task.IsCompleted && !task.IsFaulted && !task.IsCanceled)
                 {
                     Debug.Log(emailField.text + " 로 로그인 하셨습니다.");
+                    isLogin = true;
                 }
                 else
                 {

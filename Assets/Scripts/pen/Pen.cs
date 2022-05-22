@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,8 +6,22 @@ using UnityEngine;
 public class Pen : MonoBehaviour
 {
     public GameObject nip;
-    public void Draw()
+    private bool usingPen = false;
+    public void DrawEnter()
     {
-        Debug.LogError(nip.transform.position);
+        usingPen = true;
+    }
+
+    public void DrawExit()
+    {
+        usingPen = false;
+    }
+
+    public void Update()
+    {
+        if (usingPen)
+        {
+            Debug.LogError(nip.transform.position);
+        }
     }
 }

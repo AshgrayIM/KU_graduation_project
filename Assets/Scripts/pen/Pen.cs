@@ -45,8 +45,7 @@ public class Pen : MonoBehaviour
         trailRenderer.GetPositions(list);
         
         trailRenderer.Clear();
-        var lineObj = Instantiate(lineRenderer);
-        
+        var lineObj = PhotonNetwork.Instantiate("InkPrefab", Vector3.zero, Quaternion.identity);
         lineObj.name = $"{photonView.ViewID}{inkPrefix}({inkNo++})";
         
         var line = lineObj.GetComponent<LineRenderer>();
@@ -59,12 +58,13 @@ public class Pen : MonoBehaviour
     public void SendLine(int positionCount, Vector3[] positions, string lineName)
     {
         if (photonView.IsMine)
-            photonView.RPC("SetLineData", RpcTarget.All, positionCount, positions, lineName);
+            photonView.RPC("SetLineData", RpcTarget.OthersBuffered, positionCount, positions, lineName);
     }
 
     [PunRPC]
     void SetLineData(int positionCount, Vector3[] positions, string lineName)
     {
+        Debug.LogWarning(lineName);
         var line = gameObject.transform.Find(lineName).GetComponent<LineRenderer>();
         line.positionCount = positionCount;
         line.SetPositions(positions);

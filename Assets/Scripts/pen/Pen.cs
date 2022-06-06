@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Pen : MonoBehaviour
 {
@@ -40,7 +41,7 @@ public class Pen : MonoBehaviour
         trailRenderer.GetPositions(list);
         
         trailRenderer.Clear();
-        
+        lineRenderer = PhotonNetwork.Instantiate("lineRenderer", transform.position, transform.rotation);
         var lineObj = Instantiate(lineRenderer);
         lineObj.name = $"{inkPrefix} ({inkNo++})";
         var line = lineObj.GetComponent<LineRenderer>();

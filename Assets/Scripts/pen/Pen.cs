@@ -10,8 +10,8 @@ public class Pen : MonoBehaviour
     public Material material;
     public TrailRenderer trailRenderer;
     public GameObject lineRenderer;
-    private bool usingPen = false;
-    private List<Vector3> vectorData;
+    // private bool usingPen = false;
+    // private List<Vector3> vectorData;
     
     private int inkNo = 0;
     private string inkPrefix = "ink";
@@ -24,13 +24,13 @@ public class Pen : MonoBehaviour
 
     public void DrawEnter()
     {
-        usingPen = true;
+        // usingPen = true;
         trailRenderer.gameObject.SetActive(true);
     }
 
     public void DrawExit()
     {
-        usingPen = false;
+        // usingPen = false;
         trailRenderer.gameObject.SetActive(false);
 
         int positionCount = trailRenderer.positionCount;
@@ -39,21 +39,21 @@ public class Pen : MonoBehaviour
         
         trailRenderer.Clear();
         
-        var lineObj = PhotonNetwork.Instantiate("InkPrefab", transform.position, transform.rotation);
+        var lineObj = PhotonNetwork.Instantiate("InkPrefab", Vector3.zero, Quaternion.identity);
         lineObj.name = $"{inkPrefix} ({inkNo++})";
         
         var line = lineObj.GetComponent<LineRenderer>();
         line.material = material;
         line.positionCount = positionCount;
         line.SetPositions(list);
-        line.gameObject.SetActive(true);
+        lineObj.SetActive(true);
     }
 
-    public void Update()
-    {
-        if (usingPen)
-        {
-            vectorData.Add(nib.transform.position);
-        }
-    }
+    // public void Update()
+    // {
+    //     if (usingPen)
+    //     {
+    //         vectorData.Add(nib.transform.position);
+    //     }
+    // }
 }

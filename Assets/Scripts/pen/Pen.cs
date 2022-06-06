@@ -10,8 +10,8 @@ public class Pen : MonoBehaviour
     public Material material;
     public TrailRenderer trailRenderer;
     public GameObject lineRenderer;
-    // private bool usingPen = false;
-    // private List<Vector3> vectorData;
+    private bool usingPen = false;
+    private List<Vector3> vectorData;
     
     private int inkNo = 0;
     private string inkPrefix = "ink";
@@ -20,17 +20,20 @@ public class Pen : MonoBehaviour
     {
         material.SetFloat("_Width", 0.005f);
         trailRenderer.material = material;
+        
+        var lr = lineRenderer.GetComponent<LineRenderer>();
+        lr.material = material;
     }
 
     public void DrawEnter()
     {
-        // usingPen = true;
+        usingPen = true;
         trailRenderer.gameObject.SetActive(true);
     }
 
     public void DrawExit()
     {
-        // usingPen = false;
+        usingPen = false;
         trailRenderer.gameObject.SetActive(false);
 
         int positionCount = trailRenderer.positionCount;
@@ -38,22 +41,30 @@ public class Pen : MonoBehaviour
         trailRenderer.GetPositions(list);
         
         trailRenderer.Clear();
-        
-        var lineObj = PhotonNetwork.Instantiate("InkPrefab", Vector3.zero, Quaternion.identity);
+        var lineObj = Instantiate(lineRenderer);
         lineObj.name = $"{inkPrefix} ({inkNo++})";
-        
         var line = lineObj.GetComponent<LineRenderer>();
-        line.material = material;
         line.positionCount = positionCount;
         line.SetPositions(list);
-        lineObj.SetActive(true);
+        line.gameObject.SetActive(true);
+
+        SendLine(list);
     }
 
-    // public void Update()
-    // {
-    //     if (usingPen)
-    //     {
-    //         vectorData.Add(nib.transform.position);
-    //     }
-    // }
+    public void SendLine(Vector3[] positions)
+    {
+        trailRenderer.GetPositions(positions);
+
+        PhotonView photonView = PhotonView.Get(this);
+        if (photonView.IsMine)
+            photonView.RPC("SendLine", RpcTarget.OthersBuffered, positions);
+    }
+
+    public void Update()
+    {
+        if (usingPen)
+        {
+            vectorData.Add(nib.transform.position);
+        }
+    }
 }

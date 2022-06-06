@@ -31,6 +31,7 @@ public class Pen : MonoBehaviour
         trailRenderer.gameObject.SetActive(true);
     }
 
+    [PunRPC]
     public void DrawExit()
     {
         usingPen = false;

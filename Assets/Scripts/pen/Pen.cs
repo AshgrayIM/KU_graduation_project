@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Pen : MonoBehaviour
 {
-    public GameObject nip;
+    public GameObject nib;
     public Material material;
     public TrailRenderer trailRenderer;
     public GameObject lineRenderer;
@@ -53,7 +53,7 @@ public class Pen : MonoBehaviour
     {
         if (usingPen)
         {
-            vectorData.Add(nip.transform.position);
+            vectorData.Add(nib.transform.position);
         }
     }
 }

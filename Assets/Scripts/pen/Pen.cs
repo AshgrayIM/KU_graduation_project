@@ -53,11 +53,11 @@ public class Pen : MonoBehaviour
     }
 
     [PunRPC]
-    public void SendLine(Vector3[] positions)
+    public void SendLine(Vector3[] list)
     {
         PhotonView photonView = PhotonView.Get(this);
         if (photonView.IsMine)
-            photonView.RPC("SendLine", RpcTarget.OthersBuffered, positions);
+            photonView.RPC("DrawExit", RpcTarget.OthersBuffered, list);
     }
 
     public void Update()

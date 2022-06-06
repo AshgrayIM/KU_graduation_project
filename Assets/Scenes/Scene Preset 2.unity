@@ -2260,13 +2260,62 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 47791054321427303, guid: 74f88cf9ae6811046ba00db2432163b9,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 48829614351205670, guid: 74f88cf9ae6811046ba00db2432163b9,
         type: 3}
       propertyPath: m_Name
       value: Pencil Black
       objectReference: {fileID: 0}
+    - target: {fileID: 62675791773556728, guid: 74f88cf9ae6811046ba00db2432163b9,
+        type: 3}
+      propertyPath: nib
+      value: 
+      objectReference: {fileID: 1823061163}
+    - target: {fileID: 5040335651230881312, guid: 74f88cf9ae6811046ba00db2432163b9,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74f88cf9ae6811046ba00db2432163b9, type: 3}
+--- !u!1 &1823061163 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 47791054188826877, guid: 74f88cf9ae6811046ba00db2432163b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1823061162}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1823061164 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 47791053651621433, guid: 74f88cf9ae6811046ba00db2432163b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1823061162}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1823061165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823061164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 1
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 3
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &1896716229
 GameObject:
   m_ObjectHideFlags: 0

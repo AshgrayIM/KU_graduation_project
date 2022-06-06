@@ -613,11 +613,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: InkPrefab
       objectReference: {fileID: 0}
-    - target: {fileID: 5121119807864229058, guid: 47c37b802dbeea340b79a382e53c48a7,
-        type: 3}
-      propertyPath: sceneViewId
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47c37b802dbeea340b79a382e53c48a7, type: 3}
 --- !u!1 &47791053651621433 stripped

@@ -51,10 +51,9 @@ public class Pen : MonoBehaviour
         SendLine(list);
     }
 
+    [PunRPC]
     public void SendLine(Vector3[] positions)
     {
-        trailRenderer.GetPositions(positions);
-
         PhotonView photonView = PhotonView.Get(this);
         if (photonView.IsMine)
             photonView.RPC("SendLine", RpcTarget.OthersBuffered, positions);

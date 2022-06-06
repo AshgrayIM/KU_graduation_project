@@ -6,12 +6,9 @@ using Photon.Pun;
 
 public class Pen : MonoBehaviour
 {
-    // public GameObject nib;
     public Material material;
     public TrailRenderer trailRenderer;
     public GameObject lineRenderer;
-    // private bool usingPen = false;
-    // private List<Vector3> vectorData;
     private PhotonView photonView;
     
     private int inkNo = 0;
@@ -30,32 +27,31 @@ public class Pen : MonoBehaviour
 
     public void DrawEnter()
     {
-        // usingPen = true;
-        trailRenderer.gameObject.SetActive(true);
+        photonView.RPC("Draw", RpcTarget.All, true);
     }
 
     [PunRPC]
     public void DrawExit()
     {
-        // usingPen = false;
-        trailRenderer.gameObject.SetActive(false);
+        photonView.RPC("Draw", RpcTarget.All, false);
 
         int positionCount = trailRenderer.positionCount;
         Vector3[] list = new Vector3[positionCount];
         trailRenderer.GetPositions(list);
         
         trailRenderer.Clear();
-        
-        // var line = lineObj.GetComponent<LineRenderer>();
-        // line.positionCount = positionCount;
-        // line.SetPositions(list);
-        // line.gameObject.SetActive(true);
 
         SendLine(positionCount, list);
     }
     public void SendLine(int positionCount, Vector3[] positions)
     {
         photonView.RPC("getLineDataAndSet", RpcTarget.All, positionCount, positions);
+    }
+
+    [PunRPC]
+    void Draw(bool active)
+    {
+        trailRenderer.gameObject.SetActive(active);
     }
 
     [PunRPC]
@@ -70,12 +66,4 @@ public class Pen : MonoBehaviour
         line.SetPositions(positions);
         line.gameObject.SetActive(true);
     }
-
-    // public void Update()
-    // {
-    //     if (usingPen)
-    //     {
-    //         vectorData.Add(nib.transform.position);
-    //     }
-    // }
 }

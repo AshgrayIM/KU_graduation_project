@@ -20,9 +20,6 @@ public class Pen : MonoBehaviour
     {
         material.SetFloat("_Width", 0.005f);
         trailRenderer.material = material;
-        
-        var lr = lineRenderer.GetComponent<LineRenderer>();
-        lr.material = material;
     }
 
     public void DrawEnter()
@@ -41,10 +38,12 @@ public class Pen : MonoBehaviour
         trailRenderer.GetPositions(list);
         
         trailRenderer.Clear();
-        lineRenderer = PhotonNetwork.Instantiate("lineRenderer", transform.position, transform.rotation);
-        var lineObj = Instantiate(lineRenderer);
+        
+        var lineObj = PhotonNetwork.Instantiate("InkPrefab", transform.position, transform.rotation);
         lineObj.name = $"{inkPrefix} ({inkNo++})";
+        
         var line = lineObj.GetComponent<LineRenderer>();
+        line.material = material;
         line.positionCount = positionCount;
         line.SetPositions(list);
         line.gameObject.SetActive(true);

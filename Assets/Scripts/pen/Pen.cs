@@ -12,6 +12,7 @@ public class Pen : MonoBehaviour
     public GameObject lineRenderer;
     private bool usingPen = false;
     private List<Vector3> vectorData;
+    private PhotonView photonView;
     
     private int inkNo = 0;
     private string inkPrefix = "ink";
@@ -23,6 +24,8 @@ public class Pen : MonoBehaviour
         
         var lr = lineRenderer.GetComponent<LineRenderer>();
         lr.material = material;
+        
+        photonView = PhotonView.Get(this);
     }
 
     public void DrawEnter()
@@ -43,21 +46,29 @@ public class Pen : MonoBehaviour
         
         trailRenderer.Clear();
         var lineObj = Instantiate(lineRenderer);
-        lineObj.name = $"{inkPrefix} ({inkNo++})";
+        
+        lineObj.name = $"{photonView.ViewID}{inkPrefix}({inkNo++})";
+        
         var line = lineObj.GetComponent<LineRenderer>();
         line.positionCount = positionCount;
         line.SetPositions(list);
         line.gameObject.SetActive(true);
 
-        SendLine(list);
+        SendLine(positionCount, list, lineObj.name);
+    }
+    public void SendLine(int positionCount, Vector3[] positions, string lineName)
+    {
+        if (photonView.IsMine)
+            photonView.RPC("SetLineData", RpcTarget.All, positionCount, positions, lineName);
     }
 
     [PunRPC]
-    public void SendLine(Vector3[] list)
+    void SetLineData(int positionCount, Vector3[] positions, string lineName)
     {
-        PhotonView photonView = PhotonView.Get(this);
-        if (photonView.IsMine)
-            photonView.RPC("DrawExit", RpcTarget.OthersBuffered, list);
+        var line = gameObject.transform.Find(lineName).GetComponent<LineRenderer>();
+        line.positionCount = positionCount;
+        line.SetPositions(positions);
+        line.gameObject.SetActive(true);
     }
 
     public void Update()

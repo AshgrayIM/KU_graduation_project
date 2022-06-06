@@ -38,8 +38,6 @@ public class Pen : MonoBehaviour
         int positionCount = trailRenderer.positionCount;
         Vector3[] list = new Vector3[positionCount];
         trailRenderer.GetPositions(list);
-        
-        trailRenderer.Clear();
 
         SendLine(positionCount, list);
     }
@@ -57,6 +55,7 @@ public class Pen : MonoBehaviour
     [PunRPC]
     void getLineDataAndSet(int positionCount, Vector3[] positions)
     {
+        trailRenderer.Clear();
         var lineObj = PhotonNetwork.Instantiate("InkPrefab", Vector3.zero, Quaternion.identity);
         lineObj.name = $"{photonView.ViewID}{inkPrefix}({inkNo++})";
         

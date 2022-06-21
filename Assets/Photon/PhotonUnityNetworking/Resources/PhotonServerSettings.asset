@@ -42,6 +42,10 @@ MonoBehaviour:
   - CantHearYou
   - HeresWhy
   - ChangeColour
+  - DrawExit
+  - SetLineData
+  - getLineDataAndSet
+  - Draw
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

@@ -17,7 +17,6 @@ public class DefaultRoom
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
     public List<DefaultRoom> defaultRooms;
-    public GameObject roomUI;
 
     private string userId = "test";
 
@@ -55,7 +54,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnJoinedLobby()
     {
         Debug.Log("Joined the lobby.");
-        roomUI.SetActive(true);
         if (PhotonNetwork.IsMasterClient)
         {
             PhotonNetwork.LoadLevel("Level_1");
@@ -120,6 +118,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             roomNameText.text = $"ROOM_{Random.Range(1, 100):000}";
         }
 
+        Debug.Log($"Room create : {roomNameText.text}");
         PhotonNetwork.CreateRoom(roomNameText.text, roomOptions);
     }
     #endregion

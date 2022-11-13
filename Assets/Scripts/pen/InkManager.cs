@@ -17,13 +17,14 @@ public class InkManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Delete))
         {
-            photonView.RPC("DeleteAll", RpcTarget.All);
+            photonView.RPC("DeleteAll", RpcTarget.All, "log param");
         }
     }
 
     [PunRPC]
-    void DeleteAll()
+    void DeleteAll(string log)
     {
+        Debug.Log(log);
         var inkList = GameObject.FindGameObjectsWithTag("Ink");
         for (int i = 0; i < inkList.Length; i++)
         {

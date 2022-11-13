@@ -81,13 +81,14 @@ public class Pen : MonoBehaviour
         Debug.Log(drawer);
         trailRenderer.Clear();
         var lineObj = PhotonNetwork.Instantiate("InkPrefab", Vector3.zero, Quaternion.identity);
-        lineObj.name = $"{inkPrefix}({photonView.ViewID}" + "/" + "{inkNo++})";
+        lineObj.name = $"{inkPrefix}({photonView.ViewID}" + "/" + $"{inkNo++})";
         var line = lineObj.GetComponent<LineRenderer>();
         line.material = material;
         line.positionCount = positionCount;
         line.SetPositions(positions);
         line.gameObject.SetActive(true);
-        
+        line.gameObject.tag = "Ink";
+
         // 내가 그린것만 그림 히스토리에 추가
         // if (drawer == photonView.ViewID)
         // {

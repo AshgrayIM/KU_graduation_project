@@ -12,7 +12,7 @@ public class Pen : MonoBehaviour
     private PhotonView photonView;
 
     // 실행 취소
-    private List<GameObject> undoHistory;
+    private List<GameObject> undoHistory = new List<GameObject>();
     // 다시 실행 (10개 까지만 저장하는것으로)
     private List<GameObject> redoHistory;
     
@@ -81,19 +81,19 @@ public class Pen : MonoBehaviour
         Debug.Log(drawer);
         trailRenderer.Clear();
         var lineObj = PhotonNetwork.Instantiate("InkPrefab", Vector3.zero, Quaternion.identity);
-        lineObj.name = $"{photonView.ViewID}{inkPrefix}({inkNo++})";
-        
-        // 내가 그린것만 그림 히스토리에 추가
-        if (drawer == photonView.ViewID)
-        {
-            undoHistory.Add(lineObj);
-        }
-        
+        lineObj.name = $"{inkPrefix}({photonView.ViewID}" + "/" + "{inkNo++})";
         var line = lineObj.GetComponent<LineRenderer>();
         line.material = material;
         line.positionCount = positionCount;
         line.SetPositions(positions);
         line.gameObject.SetActive(true);
+        
+        // 내가 그린것만 그림 히스토리에 추가
+        // if (drawer == photonView.ViewID)
+        // {
+        //     Debug.Log(lineObj);
+        //     undoHistory.Add(lineObj);
+        // }
     }
 
     #endregion

@@ -78,7 +78,7 @@ public class Pen : MonoBehaviour
     [PunRPC]
     void GetLineDataAndSet(int positionCount, Vector3[] positions, int drawer)
     {
-        Debug.Log(drawer);
+        // Debug.Log(drawer);
         trailRenderer.Clear();
         var lineObj = PhotonNetwork.Instantiate("InkPrefab", Vector3.zero, Quaternion.identity);
         lineObj.name = $"{inkPrefix}({photonView.ViewID}" + "/" + $"{inkNo++})";

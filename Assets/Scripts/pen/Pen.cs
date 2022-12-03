@@ -9,6 +9,7 @@ public class Pen : MonoBehaviour
     public Material material;
     public TrailRenderer trailRenderer;
     public GameObject lineRenderer;
+    public GameObject InkPlane;
     private PhotonView photonView;
 
     // 실행 취소
@@ -80,9 +81,20 @@ public class Pen : MonoBehaviour
     {
         // Debug.Log(drawer);
         trailRenderer.Clear();
+        
+        Vector3 average = Vector3.zero;
+        for (int i = 0; i < positionCount; i++){
+            average += positions[i];
+        }
+
+        var containObj = PhotonNetwork.Instantiate("InkPlane", average / positionCount, Quaternion.identity);
         var lineObj = PhotonNetwork.Instantiate("InkPrefab", Vector3.zero, Quaternion.identity);
+        containObj.name = $"{inkPrefix}({photonView.ViewID}" + "/" + $"{inkNo++})";
         lineObj.name = $"{inkPrefix}({photonView.ViewID}" + "/" + $"{inkNo++})";
+        lineObj.transform.parent = containObj.transform;
+
         var line = lineObj.GetComponent<LineRenderer>();
+        line.alignment = LineAlignment.TransformZ;
         line.material = material;
         line.positionCount = positionCount;
         line.SetPositions(positions);

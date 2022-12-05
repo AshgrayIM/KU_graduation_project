@@ -9,7 +9,6 @@ public class Pen : MonoBehaviour
     public Material material;
     public TrailRenderer trailRenderer;
     public GameObject lineRenderer;
-    public GameObject InkPlane;
     private PhotonView photonView;
 
     // 실행 취소
@@ -89,8 +88,9 @@ public class Pen : MonoBehaviour
 
         var containObj = PhotonNetwork.Instantiate("InkPlane", average / positionCount, Quaternion.identity);
         var lineObj = PhotonNetwork.Instantiate("InkPrefab", Vector3.zero, Quaternion.identity);
-        containObj.name = $"{inkPrefix}({photonView.ViewID}" + "/" + $"{inkNo++})";
-        lineObj.name = $"{inkPrefix}({photonView.ViewID}" + "/" + $"{inkNo++})";
+        containObj.name = $"{inkPrefix}({photonView.ViewID}" + "/" + $"{inkNo})";
+        lineObj.name = $"{inkPrefix}({photonView.ViewID}" + "/" + $"{inkNo})";
+        inkNo++;
         lineObj.transform.parent = containObj.transform;
 
         var line = lineObj.GetComponent<LineRenderer>();

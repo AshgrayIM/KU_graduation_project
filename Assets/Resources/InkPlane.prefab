@@ -125,6 +125,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 47791054321427300}
+  - {fileID: 9189811509620107987}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -391,3 +392,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8539783298388770840}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9189811509620107987 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 651794112813804235, guid: 47c37b802dbeea340b79a382e53c48a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 8539783298388770840}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

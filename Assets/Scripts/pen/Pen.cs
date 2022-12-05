@@ -85,15 +85,19 @@ public class Pen : MonoBehaviour
         for (int i = 0; i < positionCount; i++){
             average += positions[i];
         }
+        average = average / positionCount;
 
-        var containObj = PhotonNetwork.Instantiate("InkPlane", average / positionCount, Quaternion.identity);
-        var lineObj = PhotonNetwork.Instantiate("InkPrefab", Vector3.zero, Quaternion.identity);
-        containObj.name = $"{inkPrefix}({photonView.ViewID}" + "/" + $"{inkNo})";
-        lineObj.name = $"{inkPrefix}({photonView.ViewID}" + "/" + $"{inkNo})";
-        inkNo++;
-        lineObj.transform.parent = containObj.transform;
+        for (int i = 0; i < positionCount; i++){
+            positions[i] -= average;
+        }
 
-        var line = lineObj.GetComponent<LineRenderer>();
+        // var lineObj = PhotonNetwork.Instantiate("InkPrefab", Vector3.zero, Quaternion.identity);
+        var containObj = PhotonNetwork.Instantiate("InkPlane", average, Quaternion.identity);
+        // lineObj.name = $"{inkPrefix}({photonView.ViewID}" + "/" + $"{inkNo})";
+        containObj.name = $"{inkPrefix}({photonView.ViewID}" + "/" + $"{inkNo++})";
+        // lineObj.transform.parent = containObj.transform;
+
+        var line = containObj.GetComponentInChildren<LineRenderer>();
         line.alignment = LineAlignment.TransformZ;
         line.material = material;
         line.positionCount = positionCount;

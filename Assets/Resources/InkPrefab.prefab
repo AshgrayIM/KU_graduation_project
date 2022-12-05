@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3421877231324736905}
   - component: {fileID: 3421877231324736904}
-  - component: {fileID: 5121119807864229058}
+  - component: {fileID: 8136216147937180431}
   m_Layer: 0
   m_Name: InkPrefab
   m_TagString: Untagged
@@ -130,7 +130,7 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
---- !u!114 &5121119807864229058
+--- !u!114 &8136216147937180431
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,9 +146,10 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 1
-  observableSearch: 2
-  ObservedComponents: []
+  OwnershipTransfer: 0
+  observableSearch: 0
+  ObservedComponents:
+  - {fileID: 0}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

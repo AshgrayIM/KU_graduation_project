@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 47791054321427300}
   - component: {fileID: 62675791773556731}
   - component: {fileID: 8955914877995611430}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: InkPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,6 +363,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: InkPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 3421877231324736911, guid: 47c37b802dbeea340b79a382e53c48a7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3421877231324736911, guid: 47c37b802dbeea340b79a382e53c48a7,
         type: 3}

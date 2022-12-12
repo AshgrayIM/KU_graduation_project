@@ -91,14 +91,11 @@ public class Pen : MonoBehaviour
             positions[i] -= average;
         }
 
-        // var lineObj = PhotonNetwork.Instantiate("InkPrefab", Vector3.zero, Quaternion.identity);
         var containObj = PhotonNetwork.Instantiate("InkPlane", average, Quaternion.identity);
-        // lineObj.name = $"{inkPrefix}({photonView.ViewID}" + "/" + $"{inkNo})";
         containObj.name = $"{inkPrefix}({photonView.ViewID}" + "/" + $"{inkNo++})";
-        // lineObj.transform.parent = containObj.transform;
 
         var line = containObj.GetComponentInChildren<LineRenderer>();
-        line.alignment = LineAlignment.TransformZ;
+        // line.alignment = LineAlignment.TransformZ;
         line.material = material;
         line.positionCount = positionCount;
         line.SetPositions(positions);

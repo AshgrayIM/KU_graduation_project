@@ -28667,6 +28667,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Mirror_01
       objectReference: {fileID: 0}
+    - target: {fileID: 5040335651230881312, guid: 74f88cf9ae6811046ba00db2432163b9,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549411585244387188, guid: 74f88cf9ae6811046ba00db2432163b9,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 22a931750861f724a854421dccfa17e0, type: 3}
 --- !u!4 &4085100394034069733 stripped

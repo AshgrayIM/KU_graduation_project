@@ -8,12 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lobby.unity
     guid: 20b2d07f0d660ea4ca368de7f7503359
-  - enabled: 1
-    path: Assets/Scenes/Scene Preset 1.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Scenes/Scene Preset 2.unity
     guid: 44306b74be9ce414eab50eb945c843e2
+  - enabled: 1
+    path: Assets/Scenes/Scene Preset 1.unity
+    guid: 45a3133ddc353234fb63d8af224c2e4e
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260,
       type: 2}

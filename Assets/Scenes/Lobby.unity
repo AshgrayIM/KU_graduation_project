@@ -4989,9 +4989,9 @@ MonoBehaviour:
   defaultRooms:
   - Name: test
     sceneIndex: 1
-    MaxPlayer: 1
+    MaxPlayer: 2
   - Name: full test
-    sceneIndex: 2
+    sceneIndex: 1
     MaxPlayer: 2
   - Name: everyone
     sceneIndex: 1
